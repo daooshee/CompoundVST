@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Compound Video Style Transfer</title>
+    <style type="text/css">
+        body{
+        	background-color: white;
+        }
+        .links{
+        	text-decoration: none;
+        	color: blue;
+        }
+        .p2{
+        	padding-top: 20px;
+        	font-size: 25px;
+        }
+        .p1{
+        	text-align:justify;
+        	text-justify:inter-ideograph;
+        }
+        a{
+        	font-family: Sans-serif;
+        }
+        p{
+        	font-family: Sans-serif;
+        }
+        ul{
+        	font-family: Sans-serif;
+        }
+    </style>
+</head>
+<body>
+	<div align="center" style="padding-top: 30px;">
+	<p>Accepted by AAAI 2020</p>
+	<p style="font-size:35px;">Consistent Video Style Transfer via Compound Regularization</p>
+	<table style="width: 600px">
+		<tr>
+			<td>
+				<a href="mailto:daooshee@pku.edu.cn" class="links">Wenjing Wang</a>
+			</td>
+			<td>
+				<a href="mailto:xujizheng@bytedance.com" class="links">Jizheng Xu</a>
+			</td>
+			<td>
+				<a href="mailto:lizhang.idm@bytedance.com" class="links">Li Zhang</a>
+			</td>
+			<td>
+				<a href="mailto:wangyue.v@bytedance.com" class="links">Yue Wang</a>
+			</td>
+			<td>
+				<a href="mailto:liujiaying@pku.edu.cn" class="links">Jiaying Liu</a>
+			</td>
+		</tr>
+	</table>
+	</div>
+
+	<div align="left" style="padding-left: 200px; padding-right: 200px; padding-bottom: 20px;">
+
+	<p class='p2'> </p> 
+	<div align="center">
+		<img src="1.gif" alt="this slowpoke moves" height=200px>
+		<img src="2.gif" alt="this slowpoke moves" height=200px>
+		<img src="3.gif" alt="this slowpoke moves" height=200px>
+		<img src="4.gif" alt="this slowpoke moves" height=200px>
+	</div>
+	<div style="padding-left: 60px; padding-right: 60px;">
+	<p class='p1'> Figure 1. We propose a novel video style transfer framework, which can produce temporally consistent results and is highly robust to intense object movements and illumination changes. Furthermore, benefiting from the nice properties of our framework and model, we can enable features that traditional optical-flow-based methods cannot provide, such as dynamically changing styles over time.
+	</p>
+	</div>
+
+	<p class='p2'> Abstract </p> 
+	<p class='p1'> Recently, neural style transfer has drawn many attentions and significant progresses have been made, especially for image style transfer. However, flexible and consistent style transfer for videos remains a challenging problem. Existing training strategies, either using a significant amount of video data with optical flows or introduce single-frame regularizers, have limited performance on real videos. In this paper, we propose a novel interpretation of temporal consistency, based on which we analyze the drawbacks of existing training strategies, and derive a new compound regularization. Experimental results show that the proposed regularization can better balance the spatial and temporal performance, which supports our modeling. Combining with the new cost formula, we design a zero-shot video style transfer framework. Moreover, for better feature migration, we introduce a new module to dynamically adjust inter-channel distributions. Quantitative and qualitative results demonstrate the superiority of our method over other state-of-the-art style transfer methods. </p>
+
+	<p class='p2'> Temporal Consistency via Training on Single-Frame </p> 
+
+	<p class='p1'> We mathematically model temporal consistency maintenance as mapping, from which a new regularization is derived. For long-term temporal consistency, we propose a strategy of sharing global features. </p>
+
+	<div align="center">
+		<img src="compound_results.jpg" width=90%> <br>
+	</div>
+	<p class='p1'> Figure 2. Performance of temporal consistency and stylization. Each data point represents an individual experiment. The strength of regularization is represented by different colors. A deeper color indicates a higher temporal loss weight. For the convenience of comparison, we additionally draw some light gray dotted lines. The proposed compound regularization has the best trade-off rates.
+	</p>
+
+
+	<p class='p2'> Consistent Video Style Transfer </p> 
+	<div align="center">
+		<img src="Architecture.jpg" width=100%> <br>
+	</div>
+	<p class='p1'> Figure 3. Left: the proposed decorator block for inter-channel feature adjustment. Both target style features and input content features are fed into a shallow sub-network Filter Predictor to predict filters. Residual learning and dimensionality reduction are used to improve the efficiency. Right: The overall architecture of the proposed encoder-decoder style transfer network. </p>
+
+	<p class='p2'> Resources </p> 
+	<p class='p1'>
+		<ul style="line-height:15px">
+ 		　　<li> Paper: <a href="" class="links"> Coming Soon </a> </li>
+		　　<li> Code: <a href="" class="links"> Coming Soon </a> </li>
+		</ul>
+	</p>
+
+	<p class='p2'> Citation</p>
+	<p> @InProceedings{Compound2020, <br>
+		&nbsp; &nbsp; author = {Wang, Wenjing and Xu, Jizheng and Zhang, Li and Wang, Yue and Liu, Jiaying}, <br>
+		&nbsp; &nbsp; title = {Consistent Video Style Transfer via Compound Regularization}, <br>
+		&nbsp; &nbsp; booktitle = {AAAI Conference on Artificial Intelligence}, <br>
+	   	&nbsp; &nbsp; month = {February}, <br>
+	   	&nbsp; &nbsp; year = {2020} <br>
+	} <br> 
+	</p>
+
+	<p class='p2'> Selected Results </p> 
+	<div align="center">
+		<img src="obj_results.jpg" width="860px">
+	</div>
+	<p class='p1'> Figure 3. Quantitative evaluation of temporal consistency. 
+	For the proposed method, Baseline denotes the proposed image style transfer network, Blind denotes using Blind [1] for post-processing, Lt denotes training with temporal loss, and Global denotes using global feature sharing. Our models yields the lowest temporal loss for all temporal length.</p>
+
+	<p class='p2'> Video Results</p>
+	<div align="center">
+		<iframe width="560" height="315" src="https://www.youtube.com/embed/SawtsxZgSss" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+	</div>
+
+	<p class='p2'> Reference</p>
+	<p class='p1'> [1] Lai, W.-S.; Huang, J.-B.; Wang, O.; Shechtman, E.; Yumer, E.; and Yang, M.-H. 2018. Learning blind video temporal consistency. In Proc. European Conf. Computer Vision, 170–185.</p>
+
+</html>
